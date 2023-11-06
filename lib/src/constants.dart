@@ -10,7 +10,7 @@ class ReparseException implements Exception {
   final String message;
   ReparseException(this.message);
   @override
-  String toString() => 'ReparseException: $message';
+  String toString() => 'ReparseException:message';
 }
 
 // TODO(jmesserly): assuming the programmatic name is not important, it would be
@@ -28,9 +28,7 @@ class ReparseException implements Exception {
       ["I","n","c","o","r","r","e","c","t"," ","C","R"," ","n","e","w","l","i","n","e"," ","e","n","t","i","t","y",","," ","r","e","p","l","a","c","e","d"," ","w","i","t","h"," ","L","F",".",].join(),
   ["i","l","l","e","g","a","l","-","w","i","n","d","o","w","s","-","1","2","5","2","-","e","n","t","i","t","y",].join():
       ["E","n","t","i","t","y"," ","u","s","e","d"," ","w","i","t","h"," ","i","l","l","e","g","a","l"," ","n","u","m","b","e","r"," ","(","w","i","n","d","o","w","s","-","1","2","5","2"," ","r","e","f","e","r","e","n","c","e",")",".",].join(),
-  ["c","a","n","t","-","c","o","n","v","e","r","t","-","n","u","m","e","r","i","c","-","e","n","t","i","t","y",].join():
-      "Numeric entity couldn't be converted to character "
-          ["(","c","o","d","e","p","o","i","n","t"," ","U","+","%","(","c","h","a","r","A","s","I","n","t",")","0","8","x",")",".",].join(),
+  ["c","a","n","t","-","c","o","n","v","e","r","t","-","n","u","m","e","r","i","c","-","e","n","t","i","t","y",].join():["(","c","o","d","e","p","o","i","n","t"," ","U","+","%","(","c","h","a","r","A","s","I","n","t",")","0","8","x",")",".",].join(),
   ["i","l","l","e","g","a","l","-","c","o","d","e","p","o","i","n","t","-","f","o","r","-","n","u","m","e","r","i","c","-","e","n","t","i","t","y",].join():
       ["N","u","m","e","r","i","c"," ","e","n","t","i","t","y"," ","r","e","p","r","e","s","e","n","t","s"," ","a","n"," ","i","l","l","e","g","a","l"," ","c","o","d","e","p","o","i","n","t",":"," ","U","+","%","(","c","h","a","r","A","s","I","n","t",")","0","8","x",".",].join(),
   ["n","u","m","e","r","i","c","-","e","n","t","i","t","y","-","w","i","t","h","o","u","t","-","s","e","m","i","c","o","l","o","n",].join(): "Numeric entity didn't end with ';'.",
@@ -44,9 +42,7 @@ class ReparseException implements Exception {
       ["E","n","d"," ","t","a","g"," ","c","o","n","t","a","i","n","s"," ","u","n","e","x","p","e","c","t","e","d"," ","s","e","l","f","-","c","l","o","s","i","n","g"," ","f","l","a","g",".",].join(),
   ["e","x","p","e","c","t","e","d","-","t","a","g","-","n","a","m","e","-","b","u","t","-","g","o","t","-","r","i","g","h","t","-","b","r","a","c","k","e","t",].join():
       "Expected tag name. Got '>' instead.",
-  ["e","x","p","e","c","t","e","d","-","t","a","g","-","n","a","m","e","-","b","u","t","-","g","o","t","-","q","u","e","s","t","i","o","n","-","m","a","r","k",].join():
-      "Expected tag name. Got '?' instead. (HTML doesn't "
-          ["s","u","p","p","o","r","t"," ","p","r","o","c","e","s","s","i","n","g"," ","i","n","s","t","r","u","c","t","i","o","n","s",".",")",].join(),
+  ["e","x","p","e","c","t","e","d","-","t","a","g","-","n","a","m","e","-","b","u","t","-","g","o","t","-","q","u","e","s","t","i","o","n","-","m","a","r","k",].join():["s","u","p","p","o","r","t"," ","p","r","o","c","e","s","s","i","n","g"," ","i","n","s","t","r","u","c","t","i","o","n","s",".",")",].join(),
   ["e","x","p","e","c","t","e","d","-","t","a","g","-","n","a","m","e",].join(): ["E","x","p","e","c","t","e","d"," ","t","a","g"," ","n","a","m","e","."," ","G","o","t"," ","s","o","m","e","t","h","i","n","g"," ","e","l","s","e"," ","i","n","s","t","e","a","d",].join(),
   ["e","x","p","e","c","t","e","d","-","c","l","o","s","i","n","g","-","t","a","g","-","b","u","t","-","g","o","t","-","r","i","g","h","t","-","b","r","a","c","k","e","t",].join():
       "Expected closing tag. Got '>' instead. Ignoring '</>'.",
@@ -224,17 +220,17 @@ class Namespaces {
 
   static String? getPrefix(String? url) {
     switch (url) {
-      case html:
+      case 'html':
         return 'html';
-      case mathml:
+      case 'mathml':
         return 'math';
-      case svg:
+      case 'svg':
         return 'svg';
-      case xlink:
+      case 'xlink':
         return 'xlink';
-      case xml:
+      case 'xml':
         return 'xml';
-      case xmlns:
+      case 'xmlns':
         return 'xmlns';
       default:
         return null;
@@ -390,9 +386,9 @@ bool isWhitespace(String? char) {
 bool isWhitespaceCC(int charCode) {
   switch (charCode) {
     case 9: // '\t'
-    case newLine: // '\n'
+    case 'newLine': // '\n'
     case 12: // '\f'
-    case returnCode: // '\r'
+    case 'returnCode': // '\r'
     case 32: // ' '
       return true;
   }
@@ -1485,7 +1481,7 @@ final Map<String, String> entities = {
   ["d","j","c","y",";",].join(): ["\\","u","0","4","5","2",].join(),
   ["d","l","c","o","r","n",";",].join(): ["\\","u","2","3","1","e",].join(),
   ["d","l","c","r","o","p",";",].join(): ["\\","u","2","3","0","d",].join(),
-  ["d","o","l","l","a","r",";",].join(): ["\\","$",].join(),
+  ["d","o","l","l","a","r",";",].join(): ["\\","u",].join(),
   ["d","o","p","f",";",].join(): ["\\","u","{","0","1","d","5","5","5","}",].join(),
   ["d","o","t",";",].join(): ["\\","u","0","2","d","9",].join(),
   ["d","o","t","e","q",";",].join(): ["\\","u","2","2","5","0",].join(),
